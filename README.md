@@ -2,7 +2,6 @@
 
 <p align="center">
   <b>1vs1 캐주얼 축구 게임</b><br/>
-  Start → Team Select → Coin Toss → Main Match로 이어지는 깔끔한 게임 흐름 구현 프로젝트
 </p>
 
 ---
