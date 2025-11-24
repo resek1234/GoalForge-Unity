@@ -792,6 +792,55 @@ RectTransform:
   m_AnchoredPosition: {x: 502.56985, y: 238.77277}
   m_SizeDelta: {x: 1128, y: 534.3333}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &781029401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 781029403}
+  - component: {fileID: 781029402}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &781029402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781029401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37c636fb7dcbc643a2e5a9ceda90b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedTeam: 
+  opponentTeam: 
+  playerWonCoinToss: 0
+  playerHasKickoff: 0
+  currentPeriod: 0
+--- !u!4 &781029403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781029401}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 768.94104, y: 0, z: 22950.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &801382801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,3 +1571,4 @@ SceneRoots:
   - {fileID: 892701916}
   - {fileID: 456552529}
   - {fileID: 1853292906}
+  - {fileID: 781029403}

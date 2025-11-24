@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|c:\\users\\tlsdu\\onedrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\goalforge-unity\\assets\\scripts\\cointosscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cointosscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|c:\\users\\tlsdu\\onedrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\goalforge-unity\\assets\\scripts\\startscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\startscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|c:\\users\\tlsdu\\onedrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\goalforge-unity\\assets\\scripts\\teamselectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\teamselectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\ResultController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ResultController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|c:\\users\\tlsdu\\onedrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\goalforge-unity\\assets\\scripts\\maingamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\maingamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|c:\\users\\tlsdu\\onedrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\goalforge-unity\\assets\\scripts\\opponentselectscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\opponentselectscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|c:\\users\\tlsdu\\onedrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\goalforge-unity\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|c:\\users\\tlsdu\\onedrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\goalforge-unity\\assets\\scripts\\ui\\btnctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAF9048D-B012-3677-360D-21379BC0DB0D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\btnctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ResultController.cs",
+              "DocumentMoniker": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\ResultController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ResultController.cs",
+              "ToolTip": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\ResultController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ResultController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T09:39:48.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainGameController.cs",
+              "DocumentMoniker": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\MainGameController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MainGameController.cs",
+              "ToolTip": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\MainGameController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MainGameController.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAQwLoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T09:28:04.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TeamSelectController.cs",
+              "DocumentMoniker": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\TeamSelectController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TeamSelectController.cs",
+              "ToolTip": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\TeamSelectController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TeamSelectController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAAFEAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T07:53:59.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StartSceneController.cs",
+              "DocumentMoniker": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\StartSceneController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\StartSceneController.cs",
+              "ToolTip": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\StartSceneController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\StartSceneController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T07:53:58.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OpponentSelectScene.cs",
+              "DocumentMoniker": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\OpponentSelectScene.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\OpponentSelectScene.cs",
+              "ToolTip": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\OpponentSelectScene.cs",
+              "RelativeToolTip": "Assets\\Scripts\\OpponentSelectScene.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T07:53:57.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T07:53:55.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CoinTossController.cs",
+              "DocumentMoniker": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\CoinTossController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CoinTossController.cs",
+              "ToolTip": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\CoinTossController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CoinTossController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAADwv0MAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T07:53:53.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BtnCtrl.cs",
+              "DocumentMoniker": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\UI\\BtnCtrl.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\BtnCtrl.cs",
+              "ToolTip": "C:\\Users\\tlsdu\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\gamool\\GoalForge-Unity\\Assets\\Scripts\\UI\\BtnCtrl.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\BtnCtrl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T07:38:38.441Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
