@@ -80,6 +80,9 @@ public class MainMenuGenerator : MonoBehaviour
         LinkButton(canvasObj, "ManualButton", btnCtrl, "OnClickManual");
         LinkButton(canvasObj, "ExitButton", btnCtrl, "OnClickExit");
 
+        // 6. Create EventSystem
+        CreateEventSystem();
+
         Debug.Log("✅ Main Menu Generated!");
     }
 
@@ -136,7 +139,20 @@ public class MainMenuGenerator : MonoBehaviour
         BtnCtrl btnCtrl = canvasObj.AddComponent<BtnCtrl>();
         LinkButton(canvasObj, "BackButton", btnCtrl, "OnClickTitle");
 
+        // 7. Create EventSystem
+        CreateEventSystem();
+
         Debug.Log("✅ Manual UI Generated!");
+    }
+
+    private static void CreateEventSystem()
+    {
+        if (Object.FindAnyObjectByType<UnityEngine.EventSystems.EventSystem>() == null)
+        {
+            GameObject eventSystem = new GameObject("EventSystem");
+            eventSystem.AddComponent<UnityEngine.EventSystems.EventSystem>();
+            eventSystem.AddComponent<UnityEngine.EventSystems.StandaloneInputModule>();
+        }
     }
 
     private static void CreateButton(Transform parent, string name, string label, Vector2 position, Sprite sprite, System.Action onClickAction)
@@ -177,14 +193,6 @@ public class MainMenuGenerator : MonoBehaviour
             Button btn = btnTrans.GetComponent<Button>();
             if (btn != null)
             {
-                // We can't easily add persistent listeners via script without UnityEditor.Events, 
-                // but since this IS an Editor script, we can use UnityEditor.Events.
-                
-                UnityEditor.Events.UnityEventTools.AddPersistentListener(btn.onClick, new UnityEngine.Events.UnityAction(delegate {
-                    // This delegate is for runtime, but AddPersistentListener needs a target and method name.
-                    // Actually, we need to find the method on the controller.
-                }));
-
                 // Correct way to add persistent listener in Editor:
                 var methodInfo = typeof(BtnCtrl).GetMethod(methodName);
                 if (methodInfo != null)
