@@ -37,7 +37,24 @@ public class GameUI : MonoBehaviour
     [SerializeField] private Image screenBorderEffect;
     [SerializeField] private float borderPulseSpeed = 2f;
 
+    [Header("Power Up UI")]
+    [SerializeField] private TextMeshProUGUI player1PowerUpText;
+    [SerializeField] private TextMeshProUGUI player2PowerUpText;
+
     private SuperModeManager superModeManager;
+    public static GameUI Instance { get; private set; }
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -247,6 +264,72 @@ public class GameUI : MonoBehaviour
         {
             GameManager.Instance.RestartGame();
         }
+    }
+
+    public void ShowPowerUpEffect(int playerNumber, string effectName, float duration)
+    {
+        if (playerNumber == 1 && player1PowerUpText != null)
+        {
+            StartCoroutine(ShowPowerUpCoroutine(player1PowerUpText, effectName, duration));
+        }
+        else if (playerNumber == 2 && player2PowerUpText != null)
+        {
+            StartCoroutine(ShowPowerUpCoroutine(player2PowerUpText, effectName, duration));
+        }
+    }
+
+    System.Collections.IEnumerator ShowPowerUpCoroutine(TextMeshProUGUI textUI, string effectName, float duration)
+    {
+        textUI.text = effectName;
+        textUI.gameObject.SetActive(true);
+
+        float elapsed = 0f;
+        float popDuration = 0.3f;
+        Vector3 originalScale = textUI.transform.localScale;
+
+        while (elapsed < popDuration)
+        {
+            elapsed += Time.deltaTime;
+            float progress = elapsed / popDuration;
+            float scale = Mathf.Lerp(0f, 1.2f, progress);
+            textUI.transform.localScale = originalScale * scale;
+            yield return null;
+        }
+
+        elapsed = 0f;
+        while (elapsed < 0.2f)
+        {
+            elapsed += Time.deltaTime;
+            float progress = elapsed / 0.2f;
+            float scale = Mathf.Lerp(1.2f, 1f, progress);
+            textUI.transform.localScale = originalScale * scale;
+            yield return null;
+        }
+
+        textUI.transform.localScale = originalScale;
+
+        float remainingTime = duration - popDuration - 0.2f;
+        if (remainingTime > 1f)
+        {
+            yield return new WaitForSeconds(remainingTime - 1f);
+
+            elapsed = 0f;
+            Color originalColor = textUI.color;
+            while (elapsed < 1f)
+            {
+                elapsed += Time.deltaTime;
+                float alpha = Mathf.Lerp(1f, 0f, elapsed);
+                textUI.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+                yield return null;
+            }
+            textUI.color = originalColor;
+        }
+        else
+        {
+            yield return new WaitForSeconds(remainingTime);
+        }
+
+        textUI.gameObject.SetActive(false);
     }
 
     void OnQuitClicked()
