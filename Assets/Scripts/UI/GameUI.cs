@@ -26,6 +26,7 @@ public class GameUI : MonoBehaviour
 
     [Header("Result UI")]
     [SerializeField] private TextMeshProUGUI resultText;
+    [SerializeField] private TextMeshProUGUI goalText;
 
     [Header("Pause Menu")]
     [SerializeField] private GameObject pauseMenuPanel;
@@ -276,6 +277,41 @@ public class GameUI : MonoBehaviour
         {
             StartCoroutine(ShowPowerUpCoroutine(player2PowerUpText, effectName, duration));
         }
+    }
+
+    public void ShowGoalText()
+    {
+        if (goalText != null)
+        {
+            StartCoroutine(ShowGoalTextCoroutine());
+        }
+    }
+
+    System.Collections.IEnumerator ShowGoalTextCoroutine()
+    {
+        goalText.text = "GOAL!!!!!";
+        goalText.gameObject.SetActive(true);
+        goalText.transform.localScale = Vector3.zero;
+
+        float duration = 0.5f;
+        float elapsed = 0f;
+
+        // Pop in
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float progress = elapsed / duration;
+            // Elastic ease out
+            float scale = Mathf.Sin(-13 * (progress + 1) * Mathf.PI / 2) * Mathf.Pow(2, -10 * progress) + 1;
+            goalText.transform.localScale = Vector3.one * scale;
+            yield return null;
+        }
+        
+        goalText.transform.localScale = Vector3.one;
+
+        yield return new WaitForSeconds(1.5f);
+
+        goalText.gameObject.SetActive(false);
     }
 
     System.Collections.IEnumerator ShowPowerUpCoroutine(TextMeshProUGUI textUI, string effectName, float duration)
