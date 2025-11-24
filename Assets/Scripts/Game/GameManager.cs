@@ -75,6 +75,66 @@ public class GameManager : MonoBehaviour
         SpawnPlayers();
         SpawnBall();
         SetupCamera();
+        SetupBackground();
+        SetupItemSpawner();
+    }
+
+    void SetupItemSpawner()
+    {
+        ItemSpawner spawner = FindObjectOfType<ItemSpawner>();
+        if (spawner == null)
+        {
+            GameObject spawnerObj = new GameObject("ItemSpawner");
+            spawner = spawnerObj.AddComponent<ItemSpawner>();
+        }
+
+        // Load item prefabs from Resources
+        GameObject[] loadedItems = Resources.LoadAll<GameObject>("Items");
+        if (loadedItems != null && loadedItems.Length > 0)
+        {
+            System.Collections.Generic.List<GameObject> itemList = new System.Collections.Generic.List<GameObject>(loadedItems);
+            spawner.Setup(itemList);
+        }
+        else
+        {
+            Debug.LogWarning("No item prefabs found in Resources/Items");
+        }
+    }
+
+    void SetupBackground()
+    {
+        Sprite grassSprite = Resources.Load<Sprite>("Sprites/GrassBackground");
+        if (grassSprite == null)
+        {
+            Debug.LogWarning("GrassBackground sprite not found in Resources/Sprites/");
+            return;
+        }
+
+        GameObject backgroundGroup = new GameObject("BackgroundGroup");
+        
+        // Create a 20x20 grid of grass tiles
+        // Assuming the sprite is 512x512 pixels and PPU is 100, each tile is 5.12x5.12 units
+        float tileSize = grassSprite.bounds.size.x;
+        int gridSize = 20;
+        float startOffset = -(gridSize * tileSize) / 2f;
+
+        for (int x = 0; x < gridSize; x++)
+        {
+            for (int y = 0; y < gridSize; y++)
+            {
+                GameObject tile = new GameObject($"GrassTile_{x}_{y}");
+                tile.transform.SetParent(backgroundGroup.transform);
+                
+                SpriteRenderer sr = tile.AddComponent<SpriteRenderer>();
+                sr.sprite = grassSprite;
+                sr.sortingOrder = -100; // Render behind everything
+                
+                float posX = startOffset + (x * tileSize);
+                float posY = startOffset + (y * tileSize);
+                
+                tile.transform.position = new Vector3(posX, posY, 10f); // Z=10 to be behind
+            }
+        }
     }
 
     void SetupCamera()
@@ -212,6 +272,11 @@ public class GameManager : MonoBehaviour
             return;
         }
         
+        if (GameUI.Instance != null)
+        {
+            GameUI.Instance.ShowGoalText();
+        }
+
         StartCoroutine(GoalSequence());
     }
 
