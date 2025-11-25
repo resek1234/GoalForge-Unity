@@ -920,7 +920,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 366138004}
-  - component: {fileID: 366138003}
+  - component: {fileID: 366138005}
   m_Layer: 0
   m_Name: TeamSelectManager
   m_TagString: Untagged
@@ -928,7 +928,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &366138003
+--- !u!4 &366138004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366138002}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 768.94104, y: 0, z: 22950.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &366138005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -937,7 +952,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 366138002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73f4c454755cbc943b49df68598596ba, type: 3}
+  m_Script: {fileID: 11500000, guid: f278db69be529ec429ac59c2a8142ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   teamButtons:
@@ -955,21 +970,6 @@ MonoBehaviour:
   selectedTeamText: {fileID: 1754041187}
   confirmButton: {fileID: 960419085}
   cancelButton: {fileID: 773379802}
---- !u!4 &366138004
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366138002}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 768.94104, y: 0, z: 22950.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &470099700
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,7 +3150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -546, y: 7}
+  m_AnchoredPosition: {x: -593, y: 7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684080583
@@ -3238,7 +3238,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -53.49829, y: 0, z: -115.856445, w: 0}
+  m_margin: {x: -53.49829, y: 0, z: -0.9784546, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3286,7 +3286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 608, y: -41}
+  m_AnchoredPosition: {x: 608, y: 85}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1754041187
@@ -3374,7 +3374,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -105.497314, y: 0, z: -98.03845, w: 0}
+  m_margin: {x: -7.100464, y: 0, z: -98.03845, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3538,6 +3538,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db34616a21512d645b55eb30c011e18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startButton: {fileID: 0}
+  manualButton: {fileID: 0}
+  exitButton: {fileID: 0}
+  titleButton: {fileID: 0}
 --- !u!4 &1899899808
 Transform:
   m_ObjectHideFlags: 0

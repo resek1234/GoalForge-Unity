@@ -317,8 +317,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -13.599609, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -453,8 +453,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -506,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 720132007}
-  - component: {fileID: 720132006}
+  - component: {fileID: 720132008}
   m_Layer: 0
   m_Name: CoinTossManager
   m_TagString: Untagged
@@ -514,30 +514,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &720132006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720132005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5daced5af7b43cf448781624cc29ec8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coin3D: {fileID: 1004858524}
-  coinRenderCamera: {fileID: 1532159033}
-  coinRawImage: {fileID: 980216894}
-  resultText: {fileID: 150817661}
-  sideInfoText: {fileID: 341964115}
-  playButton: {fileID: 1311867961}
-  startPosition: {x: 0, y: 0}
-  endPosition: {x: 0, y: 0}
-  tossDuration: 2
-  spinSpeed: 720
-  sizeStart: 100
-  sizeEnd: 400
 --- !u!4 &720132007
 Transform:
   m_ObjectHideFlags: 0
@@ -553,6 +529,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &720132008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720132005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9364491bebdc49448bd76d23d41fd244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin3D: {fileID: 1004858524}
+  coinRenderCamera: {fileID: 1532159033}
+  coinRawImage: {fileID: 980216894}
+  resultText: {fileID: 150817661}
+  sideInfoText: {fileID: 341964115}
+  playButton: {fileID: 1311867961}
+  startPosition: {x: 0, y: 0}
+  endPosition: {x: 0, y: 0}
+  tossDuration: 2
+  spinSpeed: 720
+  sizeStart: 100
+  sizeEnd: 400
 --- !u!1 &960501931
 GameObject:
   m_ObjectHideFlags: 0
