@@ -11,26 +11,26 @@ public class SuperModeManager : MonoBehaviour
     private const float AutoChargeSpeedMultiplier = 5f;
 
     [Header("Super Mode Settings")]
-    [SerializeField] private float superModeDuration = 3f;
     [SerializeField] private float superModeCooldown = 8f;
-    
+    [SerializeField] private SuperModeType player1SelectedMode = SuperModeType.SuperShot;
+    [SerializeField] private SuperModeType player2SelectedMode = SuperModeType.Freeze;
+
+
     [Header("Player References")]
     [SerializeField] private PlayerController player1;
     [SerializeField] private PlayerController player2;
-    
+
     [Header("Audio")]
     [SerializeField] private AudioClip superModeActivateSound;
-    
+
     private float player1Gauge = 0f;
     private float player2Gauge = 0f;
-    
-    private bool player1InSuperMode = false;
-    private bool player2InSuperMode = false;
+
     private float player1LastSuperModeTime = -100f;
     private float player2LastSuperModeTime = -100f;
-    
+
     private AudioSource audioSource;
-    
+
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -39,62 +39,80 @@ public class SuperModeManager : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
-    
-    void Start()
-    {
-        if (player1 == null)
+
+        void Start()
         {
-            GameObject p1 = GameObject.FindGameObjectWithTag("Player1");
-            if (p1 != null) player1 = p1.GetComponent<PlayerController>();
-        }
-        
-        if (player2 == null)
-        {
-            GameObject p2 = GameObject.FindGameObjectWithTag("Player2");
-            if (p2 != null) player2 = p2.GetComponent<PlayerController>();
-        }
-    }
+            if (player1 == null)
+            {
+                GameObject p1 = GameObject.FindGameObjectWithTag("Player1");
+                if (p1 != null) player1 = p1.GetComponent<PlayerController>();
+            }
     
+            if (player2 == null)
+            {
+                GameObject p2 = GameObject.FindGameObjectWithTag("Player2");
+                if (p2 != null) player2 = p2.GetComponent<PlayerController>();
+            }
+    
+            // Load selected super modes from GameSettings if it exists
+            if (GameSettings.Instance != null)
+            {
+                player1SelectedMode = GameSettings.Instance.player1SuperMode;
+                player2SelectedMode = GameSettings.Instance.player2SuperMode;
+                Debug.Log($"Loaded P1 Mode: {player1SelectedMode}, P2 Mode: {player2SelectedMode} from GameSettings.");
+            }
+            else
+            {
+                // For testing without the selection scene, we use the values set in the Inspector
+                Debug.LogWarning("GameSettings.Instance not found. Using default values set in SuperModeManager inspector.");
+            }
+        }
     void Update()
     {
         if (GameManager.Instance != null && !GameManager.Instance.IsGameActive())
         {
-            //Debug.Log("[SuperModeManager] Game not active - skipping gauge update");
             return;
         }
 
         AutoChargeGauge();
-
-        CheckAndActivateSuperMode();
+        CheckForManualActivation();
     }
 
     void AutoChargeGauge()
     {
         float rate = autoChargeRate * AutoChargeSpeedMultiplier;
 
-        if (!player1InSuperMode && player1Gauge < maxGauge)
+        if (player1Gauge < maxGauge)
         {
             player1Gauge += rate * Time.deltaTime;
             player1Gauge = Mathf.Min(player1Gauge, maxGauge);
         }
 
-        if (!player2InSuperMode && player2Gauge < maxGauge)
+        if (player2Gauge < maxGauge)
         {
             player2Gauge += rate * Time.deltaTime;
             player2Gauge = Mathf.Min(player2Gauge, maxGauge);
         }
     }
 
-    void CheckAndActivateSuperMode()
+    void CheckForManualActivation()
     {
-        if (player1Gauge >= maxGauge && !player1InSuperMode)
+        // Player 1 Activation
+        if (player1Gauge >= maxGauge && Time.time >= player1LastSuperModeTime + superModeCooldown)
         {
-            ActivateSuperMode(1);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                ActivateSuperMode(1);
+            }
         }
 
-        if (player2Gauge >= maxGauge && !player2InSuperMode)
+        // Player 2 Activation
+        if (player2Gauge >= maxGauge && Time.time >= player2LastSuperModeTime + superModeCooldown)
         {
-            ActivateSuperMode(2);
+            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
+            {
+                ActivateSuperMode(2);
+            }
         }
     }
 
@@ -108,38 +126,19 @@ public class SuperModeManager : MonoBehaviour
 
         int playerNumber = player.GetPlayerNumber();
 
-        if (playerNumber == 1 && !player1InSuperMode)
+        if (playerNumber == 1)
         {
-            if (player1 == null)
-            {
-                player1 = player;
-                Debug.Log("[SuperModeManager] Bound player1 reference to " + player.name);
-            }
-
+            if (player1 == null) player1 = player;
             float bonus = maxGauge * ballTouchBonusPercent;
             player1Gauge += bonus;
             player1Gauge = Mathf.Min(player1Gauge, maxGauge);
-            Debug.Log("[SuperModeManager] Ball touched by Player1, gauge=" + player1Gauge);
         }
-        else if (playerNumber == 2 && !player2InSuperMode)
+        else if (playerNumber == 2)
         {
-            if (player2 == null)
-            {
-                player2 = player;
-                Debug.Log("[SuperModeManager] Bound player2 reference to " + player.name);
-            }
-
+            if (player2 == null) player2 = player;
             float bonus = maxGauge * ballTouchBonusPercent;
             player2Gauge += bonus;
             player2Gauge = Mathf.Min(player2Gauge, maxGauge);
-            Debug.Log("[SuperModeManager] Ball touched by Player2, gauge=" + player2Gauge);
-        }
-        else
-        {
-            Debug.Log("[SuperModeManager] OnBallTouch by player not matched to player1/player2 or currently in super mode. " +
-                      "player=" + player.name + ", playerNumber=" + playerNumber +
-                      ", player1=" + (player1 != null ? player1.name : "null") +
-                      ", player2=" + (player2 != null ? player2.name : "null"));
         }
     }
 
@@ -147,72 +146,32 @@ public class SuperModeManager : MonoBehaviour
     {
         if (playerNumber == 1 && player1 != null)
         {
-            player1InSuperMode = true;
+            // Call the new method on PlayerController
+            player1.ActivateSuperMode(player1SelectedMode, player2);
+
             player1Gauge = 0f;
             player1LastSuperModeTime = Time.time;
-            
-            CharacterType charType = player1.GetComponent<CharacterType>();
-            if (charType != null)
-            {
-                charType.ActivateSuperMode();
-            }
-            
-            StartCoroutine(DeactivateSuperModeAfterDuration(1));
-            
             PlaySuperModeSound();
-            Debug.Log("Player 1 Super Mode Activated!");
+            Debug.Log($"Player 1 Activated Super Mode: {player1SelectedMode}");
         }
         else if (playerNumber == 2 && player2 != null)
         {
-            player2InSuperMode = true;
+            // Call the new method on PlayerController
+            player2.ActivateSuperMode(player2SelectedMode, player1);
+
             player2Gauge = 0f;
             player2LastSuperModeTime = Time.time;
-            
-            CharacterType charType = player2.GetComponent<CharacterType>();
-            if (charType != null)
-            {
-                charType.ActivateSuperMode();
-            }
-            
-            StartCoroutine(DeactivateSuperModeAfterDuration(2));
-            
             PlaySuperModeSound();
-            Debug.Log("Player 2 Super Mode Activated!");
+            Debug.Log($"Player 2 Activated Super Mode: {player2SelectedMode}");
+        }
+
+        // Force the UI to update immediately
+        if (GameUI.Instance != null)
+        {
+            GameUI.Instance.UpdateGaugeUI();
         }
     }
-    
-    IEnumerator DeactivateSuperModeAfterDuration(int playerNumber)
-    {
-        yield return new WaitForSeconds(superModeDuration);
-        
-        if (playerNumber == 1)
-        {
-            player1InSuperMode = false;
-            if (player1 != null)
-            {
-                CharacterType charType = player1.GetComponent<CharacterType>();
-                if (charType != null)
-                {
-                    charType.DeactivateSuperMode();
-                }
-            }
-            Debug.Log("Player 1 Super Mode Deactivated!");
-        }
-        else if (playerNumber == 2)
-        {
-            player2InSuperMode = false;
-            if (player2 != null)
-            {
-                CharacterType charType = player2.GetComponent<CharacterType>();
-                if (charType != null)
-                {
-                    charType.DeactivateSuperMode();
-                }
-            }
-            Debug.Log("Player 2 Super Mode Deactivated!");
-        }
-    }
-    
+
     void PlaySuperModeSound()
     {
         if (superModeActivateSound != null && audioSource != null)
@@ -220,11 +179,13 @@ public class SuperModeManager : MonoBehaviour
             audioSource.PlayOneShot(superModeActivateSound);
         }
     }
-    
+
     public float GetPlayer1Gauge() => player1Gauge;
     public float GetPlayer2Gauge() => player2Gauge;
     public float GetMaxGauge() => maxGauge;
-    public bool IsPlayer1InSuperMode() => player1InSuperMode;
-    public bool IsPlayer2InSuperMode() => player2InSuperMode;
+    
+    // These might still be useful for UI, but they no longer control logic here
+    public bool IsPlayer1InSuperMode() => player1 != null && player1.isSuperMode;
+    public bool IsPlayer2InSuperMode() => player2 != null && player2.isSuperMode;
 }
 

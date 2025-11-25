@@ -104,12 +104,17 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    void UpdateGaugeUI()
+    public void UpdateGaugeUI()
     {
         if (superModeManager == null)
         {
-            Debug.LogWarning("[GameUI] SuperModeManager is null - gauge UI will not update");
-            return;
+            // Try to find it again if it was null initially
+            superModeManager = FindObjectOfType<SuperModeManager>();
+            if (superModeManager == null)
+            {
+                Debug.LogWarning("[GameUI] SuperModeManager is null - gauge UI will not update");
+                return;
+            }
         }
 
         if (player1GaugeBar != null)
@@ -118,11 +123,6 @@ public class GameUI : MonoBehaviour
             float maxGauge = superModeManager.GetMaxGauge();
             player1GaugeBar.fillAmount = maxGauge > 0f ? gauge1 / maxGauge : 0f;
             player1GaugeBar.color = gauge1 >= maxGauge ? gaugeFullColor : gaugeNormalColor;
-            Debug.Log("[GameUI] P1 gauge=" + gauge1 + ", fill=" + player1GaugeBar.fillAmount);
-        }
-        else
-        {
-            Debug.LogWarning("[GameUI] player1GaugeBar is null");
         }
 
         if (player2GaugeBar != null)
@@ -131,11 +131,6 @@ public class GameUI : MonoBehaviour
             float maxGauge = superModeManager.GetMaxGauge();
             player2GaugeBar.fillAmount = maxGauge > 0f ? gauge2 / maxGauge : 0f;
             player2GaugeBar.color = gauge2 >= maxGauge ? gaugeFullColor : gaugeNormalColor;
-            Debug.Log("[GameUI] P2 gauge=" + gauge2 + ", fill=" + player2GaugeBar.fillAmount);
-        }
-        else
-        {
-            Debug.LogWarning("[GameUI] player2GaugeBar is null");
         }
     }
 

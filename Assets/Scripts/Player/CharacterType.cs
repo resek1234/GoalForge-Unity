@@ -35,19 +35,33 @@ public class CharacterType : MonoBehaviour
         }
     }
     
-    public void ActivateSuperMode()
+    public void ActivateSuperMode(SuperModeType selectedMode)
     {
         if (isSuperModeActive) return;
         
         isSuperModeActive = true;
         
-        switch (characterType)
+        switch (selectedMode)
         {
-            case Type.Geodaino:
+            case SuperModeType.Giant:
+                // If character is not Geodaino, it will still use Geodaino's ability
                 ActivateGeodainoSuperMode();
                 break;
-            case Type.Lightningman:
+            case SuperModeType.SpeedBoost:
+                // If character is not Lightningman, it will still use Lightningman's ability
                 ActivateLightningmanSuperMode();
+                break;
+            default:
+                // If another mode was passed by mistake, fallback to the character's default
+                switch (characterType)
+                {
+                    case Type.Geodaino:
+                        ActivateGeodainoSuperMode();
+                        break;
+                    case Type.Lightningman:
+                        ActivateLightningmanSuperMode();
+                        break;
+                }
                 break;
         }
         
@@ -72,7 +86,7 @@ public class CharacterType : MonoBehaviour
         RemoveVisualEffects();
     }
     
-    void ActivateGeodainoSuperMode()
+    private void ActivateGeodainoSuperMode()
     {
         transform.localScale = originalScale * 3f;
 
@@ -84,7 +98,7 @@ public class CharacterType : MonoBehaviour
         }
     }
 
-    void ActivateLightningmanSuperMode()
+    private void ActivateLightningmanSuperMode()
     {
         transform.localScale = originalScale * 0.8f;
         
