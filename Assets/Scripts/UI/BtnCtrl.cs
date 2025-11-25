@@ -1,37 +1,73 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BtnCtrl : MonoBehaviour
 {
-    // 버튼 클릭 시 호출할 함수들
-    public void OnClickNext()
+    [Header("Buttons")]
+    [SerializeField] private Button startButton;
+    [SerializeField] private Button manualButton;
+    [SerializeField] private Button exitButton;
+    [SerializeField] private Button titleButton;
+
+    void Start()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // Connect buttons if assigned
+        if (startButton != null)
+        {
+            startButton.onClick.AddListener(OnClickStartGame);
+            Debug.Log("[BtnCtrl] StartButton connected");
+        }
+        
+        if (manualButton != null)
+        {
+            manualButton.onClick.AddListener(OnClickManual);
+            Debug.Log("[BtnCtrl] ManualButton connected");
+        }
+        
+        if (exitButton != null)
+        {
+            exitButton.onClick.AddListener(OnClickExit);
+            Debug.Log("[BtnCtrl] ExitButton connected");
+        }
+        
+        if (titleButton != null)
+        {
+            titleButton.onClick.AddListener(OnClickTitle);
+            Debug.Log("[BtnCtrl] TitleButton connected");
+        }
     }
-    
-     public void OnClickTitle()
+
+    // Start Game: Load MainScene
+    public void OnClickStartGame()
     {
-        SceneManager.LoadScene("TitleScene");
+        Debug.Log("[BtnCtrl] OnClickStartGame called");
+        SceneManager.LoadScene("TeamScene");
     }
+
+    // How To Play: Load ManualScene to explain rules
     public void OnClickManual()
     {
+        Debug.Log("[BtnCtrl] OnClickManual called");
         SceneManager.LoadScene("ManualScene");
     }
-        public void OnClickMain()
+
+    // Back to Title: Load TitleScene (used in ManualScene)
+    public void OnClickTitle()
     {
-        SceneManager.LoadScene("MainScene");
+        Debug.Log("[BtnCtrl] OnClickTitle called");
+        SceneManager.LoadScene("TitleScene");
     }
 
+    // Exit Game
     public void OnClickExit()
     {
-        Debug.Log("Exit Game");
+        Debug.Log("[BtnCtrl] OnClickExit called - Quitting application");
 
 #if UNITY_EDITOR
-
         UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
 #endif
     }
-
 }
