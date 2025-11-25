@@ -1,10 +1,9 @@
 # ---- Unity 기본 무시 항목 ----
 Library/
-[Tt]emp/
-[Oo]bj/
+Temp/
+Obj/
 [Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
+Logs/
 UserSettings/
 MemoryCaptures/
 
