@@ -4,6 +4,8 @@ using TMPro;
 
 public class GameUI : MonoBehaviour
 {
+    public static GameUI Instance { get; private set; }
+
     [Header("Score UI")]
     [SerializeField] private TextMeshProUGUI player1ScoreText;
     [SerializeField] private TextMeshProUGUI player2ScoreText;
@@ -38,6 +40,18 @@ public class GameUI : MonoBehaviour
     [SerializeField] private float borderPulseSpeed = 2f;
 
     private SuperModeManager superModeManager;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
