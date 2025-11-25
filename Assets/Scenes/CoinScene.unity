@@ -538,7 +538,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 720132005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9364491bebdc49448bd76d23d41fd244, type: 3}
+  m_Script: {fileID: 11500000, guid: 5daced5af7b43cf448781624cc29ec8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   coin3D: {fileID: 1004858524}

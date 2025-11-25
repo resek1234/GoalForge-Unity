@@ -921,6 +921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 366138004}
   - component: {fileID: 366138005}
+  - component: {fileID: 366138006}
   m_Layer: 0
   m_Name: TeamSelectManager
   m_TagString: Untagged
@@ -953,6 +954,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f278db69be529ec429ac59c2a8142ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamButtons:
+  - {fileID: 1154790170}
+  - {fileID: 1810417254}
+  - {fileID: 720957005}
+  - {fileID: 239651704}
+  - {fileID: 126099572}
+  - {fileID: 2133154883}
+  - {fileID: 1096181724}
+  - {fileID: 749519300}
+  - {fileID: 1513090597}
+  playerTurnText: {fileID: 1684080583}
+  confirmPanel: {fileID: 13250238}
+  selectedTeamText: {fileID: 1754041187}
+  confirmButton: {fileID: 960419085}
+  cancelButton: {fileID: 773379802}
+--- !u!114 &366138006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366138002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f4c454755cbc943b49df68598596ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   teamButtons:
