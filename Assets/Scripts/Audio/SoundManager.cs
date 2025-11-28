@@ -14,6 +14,8 @@ public class SoundManager : MonoBehaviour
     [Header("SFX")]
     [SerializeField] private AudioClip kickSound;
     [SerializeField] private AudioClip goalSound;
+    [SerializeField] private AudioClip buttonClickSound; // Added
+    [SerializeField] private AudioClip itemPickupSound;  // Added
     [SerializeField] private AudioClip dashSound;
     [SerializeField] private AudioClip superModeGeodainoSound;
     [SerializeField] private AudioClip superModeLightningmanSound;
@@ -81,6 +83,16 @@ public class SoundManager : MonoBehaviour
     public void PlayGoalSound()
     {
         PlaySFX(goalSound);
+    }
+
+    public void PlayButtonClickSound()
+    {
+        PlaySFX(buttonClickSound);
+    }
+
+    public void PlayItemPickupSound()
+    {
+        PlaySFX(itemPickupSound);
     }
     
     public void PlayDashSound()

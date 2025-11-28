@@ -315,6 +315,63 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &495748571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 495748573}
+  - component: {fileID: 495748572}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &495748572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495748571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d41ec2779175428cbeae6ad386cea0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  gameBGM: {fileID: 8300000, guid: becf3f7d99dce4fa18cc65b88c2bb5c0, type: 3}
+  kickSound: {fileID: 8300000, guid: 74b3adf2b37f04b89a3d9943b741c09d, type: 3}
+  goalSound: {fileID: 8300000, guid: 5b80773574cca46c68b7af86314e1ba2, type: 3}
+  buttonClickSound: {fileID: 0}
+  itemPickupSound: {fileID: 0}
+  dashSound: {fileID: 0}
+  superModeGeodainoSound: {fileID: 0}
+  superModeLightningmanSound: {fileID: 0}
+  whistleSound: {fileID: 0}
+  bgmVolume: 0.5
+  sfxVolume: 0.7
+--- !u!4 &495748573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495748571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &770326246
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +505,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db34616a21512d645b55eb30c011e18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startButton: {fileID: 0}
+  manualButton: {fileID: 0}
+  exitButton: {fileID: 0}
+  titleButton: {fileID: 0}
 --- !u!4 &868241691
 Transform:
   m_ObjectHideFlags: 0
@@ -907,3 +968,4 @@ SceneRoots:
   - {fileID: 398316280}
   - {fileID: 770326250}
   - {fileID: 868241691}
+  - {fileID: 495748573}

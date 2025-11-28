@@ -65,6 +65,12 @@ public abstract class PowerUpItem : MonoBehaviour
     protected virtual void CollectItem(PlayerController player)
     {
         isCollected = true;
+        
+        // Play item pickup sound
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayItemPickupSound();
+        }
 
         ApplyEffect(player);
         CreateCollectEffect();

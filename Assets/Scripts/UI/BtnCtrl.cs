@@ -41,6 +41,10 @@ public class BtnCtrl : MonoBehaviour
     // Start Game: Load MainScene
     public void OnClickStartGame()
     {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayButtonClickSound();
+        }
         Debug.Log("[BtnCtrl] OnClickStartGame called");
         SceneManager.LoadScene("MainScene");
     }
@@ -48,6 +52,10 @@ public class BtnCtrl : MonoBehaviour
     // How To Play: Load ManualScene to explain rules
     public void OnClickManual()
     {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayButtonClickSound();
+        }
         Debug.Log("[BtnCtrl] OnClickManual called");
         SceneManager.LoadScene("ManualScene");
     }
@@ -55,6 +63,10 @@ public class BtnCtrl : MonoBehaviour
     // Back to Title: Load TitleScene (used in ManualScene)
     public void OnClickTitle()
     {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayButtonClickSound();
+        }
         Debug.Log("[BtnCtrl] OnClickTitle called");
         SceneManager.LoadScene("TitleScene");
     }
@@ -62,6 +74,10 @@ public class BtnCtrl : MonoBehaviour
     // Exit Game
     public void OnClickExit()
     {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayButtonClickSound();
+        }
         Debug.Log("[BtnCtrl] OnClickExit called - Quitting application");
 
 #if UNITY_EDITOR
