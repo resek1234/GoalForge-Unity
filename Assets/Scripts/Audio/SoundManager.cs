@@ -53,19 +53,27 @@ public class SoundManager : MonoBehaviour
         sfxSource.volume = sfxVolume;
     }
     
-    void Start()
-    {
-        PlayBGM();
-    }
-    
-    public void PlayBGM()
-    {
-        if (gameBGM != null && bgmSource != null)
-        {
-            bgmSource.clip = gameBGM;
-            bgmSource.Play();
-        }
-    }
+	    void Start()
+	    {
+	    #if !UNITY_WEBGL
+	        PlayBGM();
+	    #endif
+	    }
+	    
+	    public void PlayBGM()
+	    {
+	        if (gameBGM != null && bgmSource != null)
+            {
+	            if (bgmSource.clip != gameBGM)
+	            {
+	                bgmSource.clip = gameBGM;
+	            }
+	            if (!bgmSource.isPlaying)
+	            {
+	                bgmSource.Play();
+	            }
+	        }
+	    }
     
     public void StopBGM()
     {
