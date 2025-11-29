@@ -38,43 +38,38 @@ public class BtnCtrl : MonoBehaviour
         }
     }
 
-	    // Start Game: Load MainScene
-	    public void OnClickStartGame()
-	    {
-	        if (SoundManager.Instance != null)
-	        {
-	            // WebGL autoplay 정책을 우회하기 위해
-	            // 사용자의 첫 클릭 시점에 BGM을 시작하도록 한다.
-	            SoundManager.Instance.PlayButtonClickSound();
-	            SoundManager.Instance.PlayBGM();
-	        }
-	        Debug.Log("[BtnCtrl] OnClickStartGame called");
-	        SceneManager.LoadScene("MainScene");
-	    }
+    // Start Game: Load MainScene
+    public void OnClickStartGame()
+    {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayButtonClickSound();
+        }
+        Debug.Log("[BtnCtrl] OnClickStartGame called");
+        SceneManager.LoadScene("MainScene");
+    }
 
-	    // How To Play: Load ManualScene to explain rules
-	    public void OnClickManual()
-	    {
-	        if (SoundManager.Instance != null)
-	        {
-	            SoundManager.Instance.PlayButtonClickSound();
-	            SoundManager.Instance.PlayBGM();
-	        }
-	        Debug.Log("[BtnCtrl] OnClickManual called");
-	        SceneManager.LoadScene("ManualScene");
-	    }
+    // How To Play: Load ManualScene to explain rules
+    public void OnClickManual()
+    {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayButtonClickSound();
+        }
+        Debug.Log("[BtnCtrl] OnClickManual called");
+        SceneManager.LoadScene("ManualScene");
+    }
 
-	    // Back to Title: Load TitleScene (used in ManualScene)
-	    public void OnClickTitle()
-	    {
-	        if (SoundManager.Instance != null)
-	        {
-	            SoundManager.Instance.PlayButtonClickSound();
-	            SoundManager.Instance.PlayBGM();
-	        }
-	        Debug.Log("[BtnCtrl] OnClickTitle called");
-	        SceneManager.LoadScene("TitleScene");
-	    }
+    // Back to Title: Load TitleScene (used in ManualScene)
+    public void OnClickTitle()
+    {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayButtonClickSound();
+        }
+        Debug.Log("[BtnCtrl] OnClickTitle called");
+        SceneManager.LoadScene("TitleScene");
+    }
 
     // Exit Game
     public void OnClickExit()
