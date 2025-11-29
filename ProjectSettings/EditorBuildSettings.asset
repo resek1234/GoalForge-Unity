@@ -21,11 +21,11 @@ EditorBuildSettings:
     path: Assets/Scenes/CoinScene.unity
     guid: fb64d9d35442d3a438e45c2893eb651a
   - enabled: 1
-    path: Assets/Scenes/ResultScene.unity
-    guid: 9ab999fd06f290b4385b689503bf40ed
-  - enabled: 1
     path: Assets/Scenes/ManualScene.unity
     guid: 7b863306615f29f40866f45027a7f2e9
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelectScene.unity
+    guid: eefafe0c00a792241a7c64b90f1a5af5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

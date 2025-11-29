@@ -7,8 +7,10 @@ public class SoundManager : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource goalSfx;
     
     [Header("BGM")]
+    [SerializeField] private AudioClip titleBgm;
     [SerializeField] private AudioClip gameBGM;
     
     [Header("SFX")]
@@ -22,7 +24,8 @@ public class SoundManager : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float bgmVolume = 0.5f;
     [SerializeField] private float sfxVolume = 0.7f;
-    
+    [SerializeField] private float goalSfxVolume = 0.7f;
+
     void Awake()
     {
         if (Instance == null)
@@ -49,14 +52,30 @@ public class SoundManager : MonoBehaviour
         }
         sfxSource.loop = false;
         sfxSource.volume = sfxVolume;
+
+        if (goalSfx == null)
+        {
+            goalSfx = gameObject.AddComponent<AudioSource>();
+        }
+        goalSfx.loop = false;
+        goalSfx.volume = goalSfxVolume;
     }
     
     void Start()
     {
-        PlayBGM();
+        PlayTitleBGM();
+    }
+
+    public void PlayTitleBGM()
+    {
+        if (titleBgm != null && bgmSource != null)
+        {
+            bgmSource.clip = titleBgm;
+            bgmSource.Play();
+        }
     }
     
-    public void PlayBGM()
+    public void PlayGameBGM()
     {
         if (gameBGM != null && bgmSource != null)
         {
@@ -80,7 +99,10 @@ public class SoundManager : MonoBehaviour
     
     public void PlayGoalSound()
     {
-        PlaySFX(goalSound);
+        if (goalSound != null && goalSfx != null)
+        {
+            goalSfx.PlayOneShot(goalSound);
+        }
     }
     
     public void PlayDashSound()
@@ -128,6 +150,15 @@ public class SoundManager : MonoBehaviour
         if (sfxSource != null)
         {
             sfxSource.volume = sfxVolume;
+        }
+    }
+
+    public void SetGoalSFXVolume(float volume)
+    {
+        goalSfxVolume = Mathf.Clamp01(volume);
+        if (goalSfx != null)
+        {
+            goalSfx.volume = goalSfxVolume;
         }
     }
 }
