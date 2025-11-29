@@ -199,6 +199,23 @@ public class GameManager : MonoBehaviour
         if (ballPrefab != null)
         {
             Vector3 ballPos = new Vector3(ballStartPos.x, ballStartPos.y, 0f);
+
+            // Apply Coin Toss Result for the first spawn
+            if (PlayerManager.Instance != null)
+            {
+                // If player1IsLeftSide is true (Heads), spawn near Left (Player 1)
+                // If false (Tails), spawn near Right (Player 2)
+                if (PlayerManager.Instance.player1IsLeftSide)
+                {
+                    ballPos.x = -6.0f; 
+                }
+                else
+                {
+                    ballPos.x = 6.0f;
+                }
+                Debug.Log($"[GameManager] Coin Toss Result Applied. Ball Spawn X: {ballPos.x}");
+            }
+
             ballInstance = Instantiate(ballPrefab, ballPos, Quaternion.identity);
 
             AddSpriteToBall(ballInstance);

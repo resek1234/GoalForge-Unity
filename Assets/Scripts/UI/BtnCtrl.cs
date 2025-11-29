@@ -46,7 +46,7 @@ public class BtnCtrl : MonoBehaviour
             SoundManager.Instance.PlayButtonClickSound();
         }
         Debug.Log("[BtnCtrl] OnClickStartGame called");
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("TeamScene");
     }
 
     // How To Play: Load ManualScene to explain rules
