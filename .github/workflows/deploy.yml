@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 0
           lfs: true
 
-      # Cache
+      # Cache Library folder
       - name: Cache Library
         uses: actions/cache@v3
         with:
@@ -34,16 +34,24 @@ jobs:
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
 
-      # Build
-      - name: Build WebGL
-        uses: game-ci/unity-builder@v4
+      # Activate Unity (자동 로그인 방식)
+      - name: Activate Unity
+        uses: game-ci/unity-activate@v3
+        with:
+          personalLicense: true
         env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+
+      # Build WebGL
+      - name: Build WebGL
+        uses: game-ci/unity-builder@v4
         with:
           targetPlatform: WebGL
           unityVersion: 6000.1.12f1
+        env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
 
       # Upload artifact
       - name: Upload Build
