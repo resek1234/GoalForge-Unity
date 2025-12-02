@@ -9,6 +9,7 @@ jobs:
   build:
     name: Build WebGL
     runs-on: ubuntu-latest
+
     steps:
       # Checkout
       - name: Checkout repository
@@ -17,7 +18,7 @@ jobs:
           fetch-depth: 0
           lfs: true
 
-      # Cache Library folder
+      # Cache Library
       - name: Cache Library
         uses: actions/cache@v3
         with:
@@ -34,16 +35,7 @@ jobs:
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
 
-      # Activate Unity (자동 로그인 방식)
-      - name: Activate Unity
-        uses: game-ci/unity-activate@v3
-        with:
-          personalLicense: true
-        env:
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-
-      # Build WebGL
+      # Build WebGL (자동 로그인 포함)
       - name: Build WebGL
         uses: game-ci/unity-builder@v4
         with:
@@ -66,15 +58,14 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     steps:
-      # Download artifact
       - name: Download Build
         uses: actions/download-artifact@v4
         with:
           name: build-WebGL
           path: build
 
-      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
